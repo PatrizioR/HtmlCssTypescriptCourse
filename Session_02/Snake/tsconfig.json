@@ -1,13 +1,18 @@
 {
     "compilerOptions": {
-      "module": "system",
       "noImplicitAny": true,
+      "target": "ES5",
+      "module": "commonjs",
       "removeComments": true,
       "preserveConstEnums": true,
       "sourceMap": true,
-      "outFile": "dst/scripts/index.js",
-      "lib": ["ES2020", "DOM"],
+      "typeRoots": [ "./../../node_modules/@types" ],
+      "baseUrl": ".",
+      "rootDir": "./src/",
+      "outDir": "dst/scripts/",
+      "lib": ["ES5","ES6", "DOM"],
     },
     "include": ["src/scripts/**/*"],
-    "exclude": ["node_modules", "**/*.spec.ts"]
-  }
+    "exclude": ["node_modules"],
+    "compileOnSave": true,
+}

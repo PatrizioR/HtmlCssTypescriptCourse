@@ -6,25 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snake</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="dst/scripts/index.js"></script>
+    <script type="module" src="./dst/scripts/app-bundle.js"></script>
   </head>
   <body class="bg-gray-200">
     <div class="m-4 p-2 bg-blue-200">
       <label class="flex text-2xl">Game Options</label>
       <input
         type="number"
+        id="board-width"
         min="1"
         max="100"
-        placeholder="Board Width"
-        class="m-2 py-2 px-5 w-50"
+        placeholder="Board Width (Optional)"
+        class="m-2 py-2 px-5 w-1/5"
       />
       <input
         type="number"
+        id="board-height"
         min="1"
         max="100"
-        placeholder="Board Height"
-        class="m-2 py-2 px-5"
+        placeholder="Board Height (Optional)"
+        class="m-2 py-2 px-5 w-1/5"
       />
+      <input
+        type="number"
+        id="board-snake-length"
+        min="2"
+        max="100"
+        placeholder="Snake Length (Optional)"
+        class="m-2 py-2 px-5 w-1/5"
+      />
+      <input
+        type="number"
+        id="board-snake-speed"
+        min="3"
+        max="100"
+        placeholder="Snake Speed (Optional)"
+        class="m-2 py-2 px-5 w-1/5"
+      />
+      <button
+        type="button"
+        id="board-start"
+        class="button-status bg-green-400 px-5 py-2 hover:bg-green-200 rounded-lg hover:shadow-md active:bg-green-300 disabled:bg-green-100"
+        onclick="javascript: window.start()"
+      >
+        Start
+      </button>
+      <button
+        type="button"
+        disabled="true"
+        id="board-pause"
+        class="button-status bg-yellow-400 px-5 py-2 hover:bg-yellow-200 rounded-lg hover:shadow-md active:bg-yellow-300 disabled:bg-yellow-100"
+        onclick="javascript: window.pause()"
+      >
+        Pause
+      </button>
+      <button
+        type="button"
+        disabled="true"
+        id="board-stop"
+        class="button-status bg-red-400 px-5 py-2 hover:bg-red-200 rounded-lg hover:shadow-md active:bg-red-300 disabled:bg-red-100"
+        onclick="javascript: window.stop()"
+      >
+        Stop
+      </button>
+    </div>
+    <div
+      id="board"
+      class="flex flex-row items-center justify-center content-center"
+    >
+      <canvas
+        id="board-canvas"
+        width="1000"
+        height="500"
+        class="border bg-blue-100"
+        >Test</canvas
+      >
     </div>
   </body>
 </html>

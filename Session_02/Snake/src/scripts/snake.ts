@@ -50,11 +50,11 @@ export class Snake {
     }
 
     let newHeadPosition = new Position(
-      (oldHead.x + xMove) % border.x,
-      (oldHead.y + yMove) % border.y
+      (border.x + (oldHead.x + xMove)) % border.x,
+      (border.y + (oldHead.y + yMove)) % border.y
     );
 
-    Logger.log(
+    Logger.debug(
       `Move snake from ${oldHead.toString()} to ${newHeadPosition.toString()}`
     );
 
@@ -78,8 +78,9 @@ export class Snake {
 
   public isSelfEating(): boolean {
     return (
-      this.body.some((item) => item.intefere(this.head)) ||
-      this.head.intefere(this.tail)
+      this.body.some(
+        (item) => item.intefere(this.head) || item.intefere(this.tail)
+      ) || this.head.intefere(this.tail)
     );
   }
 

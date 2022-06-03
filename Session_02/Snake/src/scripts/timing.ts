@@ -1,3 +1,5 @@
+import { Logger } from "./logger";
+
 export class Timing {
   private constructor() {}
 

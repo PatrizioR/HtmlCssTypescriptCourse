@@ -16,8 +16,11 @@ export class Position {
     return this.x === position.x && this.y === position.y;
   }
 
-  public static createRandom(border: Position) {
-    return new Position(Random.next(border.x), Random.next(border.y));
+  public static createRandom(border: Position, includeBorder: boolean = true) {
+    return new Position(
+      Random.next(border.x - (includeBorder ? 0 : 1)),
+      Random.next(border.y - (includeBorder ? 0 : 1))
+    );
   }
 
   public toString(): string {
